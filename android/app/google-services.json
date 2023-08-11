@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "741192755151",
+    "project_id": "techworld-cc83f",
+    "storage_bucket": "techworld-cc83f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741192755151:android:a73056763e06f03114d4ba",
+        "android_client_info": {
+          "package_name": "com.example.shop_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741192755151-modc8s2gd6knengdoqs2k9t0jqkhib76.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg7LeNuSATpheYRWh1v8b23Q2nSuV2ZCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741192755151-modc8s2gd6knengdoqs2k9t0jqkhib76.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
