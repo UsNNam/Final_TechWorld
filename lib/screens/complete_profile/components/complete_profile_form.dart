@@ -87,9 +87,13 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         }
         return null;
       },
+      style: TextStyle(color: kTextColor),
       decoration: InputDecoration(
         labelText: "Address",
         hintText: "Enter your address",
+        labelStyle: TextStyle(color: kTextColor),
+        hintStyle: TextStyle(color: kTextColor),
+        
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -116,9 +120,12 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         }
         return null;
       },
+      style: TextStyle(color: kTextColor),
       decoration: InputDecoration(
         labelText: "Phone Number",
         hintText: "Enter your phone number",
+        labelStyle: TextStyle(color: kTextColor),
+        hintStyle: TextStyle(color: kTextColor),
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -130,9 +137,12 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildLastNameFormField() {
     return TextFormField(
       onSaved: (newValue) => lastName = newValue,
+      style: TextStyle(color: kTextColor),
       decoration: InputDecoration(
         labelText: "Last Name",
         hintText: "Enter your last name",
+        labelStyle: TextStyle(color: kTextColor),
+        hintStyle: TextStyle(color: kTextColor),
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -157,9 +167,12 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         }
         return null;
       },
+      style: TextStyle(color: kTextColor),
       decoration: InputDecoration(
         labelText: "First Name",
         hintText: "Enter your first name",
+        labelStyle: TextStyle(color: kTextColor),
+        hintStyle: TextStyle(color: kTextColor),
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,

@@ -16,11 +16,11 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color inActiveIconColor = Color(0xFFB6B6B6);
+    final Color inActiveIconColor = Color.fromARGB(255, 247, 247, 247);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white.withOpacity(0.3),
         boxShadow: [
           BoxShadow(
             offset: Offset(0, -15),
@@ -49,11 +49,13 @@ class CustomBottomNavBar extends StatelessWidget {
                     Navigator.pushNamed(context, HomeScreen.routeName),
               ),
               IconButton(
-                icon: SvgPicture.asset("assets/icons/Heart Icon.svg"),
+                
+                icon: SvgPicture.asset("assets/icons/Heart Icon.svg", color: inActiveIconColor,),
                 onPressed: () {},
               ),
               IconButton(
-                icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg"),
+                
+                icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg", color: inActiveIconColor,),
                 onPressed: () {},
               ),
               IconButton(

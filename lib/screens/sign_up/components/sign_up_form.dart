@@ -81,7 +81,8 @@ class _SignUpFormState extends State<SignUpForm> {
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.isNotEmpty && password == confirmPassword) {
+        } 
+        if (value.isNotEmpty && password == confirmPassword) {
           removeError(error: kMatchPassError);
         }
         confirmPassword = value;
@@ -90,15 +91,19 @@ class _SignUpFormState extends State<SignUpForm> {
         if (value!.isEmpty) {
           addError(error: kPassNullError);
           return "";
-        } else if ((password != value)) {
+        } 
+        if ((password != value)) {
           addError(error: kMatchPassError);
           return "";
         }
         return null;
       },
+      style: TextStyle(color: kTextColor),
       decoration: InputDecoration(
         labelText: "Confirm Password",
         hintText: "Re-enter your password",
+        labelStyle: TextStyle(color: kTextColor),
+        hintStyle: TextStyle(color: kTextColor),
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -114,7 +119,8 @@ class _SignUpFormState extends State<SignUpForm> {
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.length >= 8) {
+        } 
+        if (value.length >= 8) {
           removeError(error: kShortPassError);
         }
         password = value;
@@ -123,15 +129,19 @@ class _SignUpFormState extends State<SignUpForm> {
         if (value!.isEmpty) {
           addError(error: kPassNullError);
           return "";
-        } else if (value.length < 8) {
+        } 
+        if (value.length < 8) {
           addError(error: kShortPassError);
           return "";
         }
         return null;
       },
+      style: TextStyle(color: kTextColor),
       decoration: InputDecoration(
         labelText: "Password",
         hintText: "Enter your password",
+        labelStyle: TextStyle(color: kTextColor),
+        hintStyle: TextStyle(color: kTextColor),
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -147,7 +157,8 @@ class _SignUpFormState extends State<SignUpForm> {
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kEmailNullError);
-        } else if (emailValidatorRegExp.hasMatch(value)) {
+        }
+        if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
         }
         return null;
@@ -156,15 +167,19 @@ class _SignUpFormState extends State<SignUpForm> {
         if (value!.isEmpty) {
           addError(error: kEmailNullError);
           return "";
-        } else if (!emailValidatorRegExp.hasMatch(value)) {
+        }
+        if (!emailValidatorRegExp.hasMatch(value)) {
           addError(error: kInvalidEmailError);
           return "";
         }
         return null;
       },
+      style: TextStyle(color: kTextColor),
       decoration: InputDecoration(
         labelText: "Email",
         hintText: "Enter your email",
+        labelStyle: TextStyle(color: kTextColor),
+        hintStyle: TextStyle(color: kTextColor),
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,

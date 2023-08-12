@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:order_tracker/order_tracker.dart';
+import 'package:shop_app/models/Product.dart';
 
 class Body extends StatefulWidget {
   
@@ -24,8 +25,25 @@ class _BodyState extends State<Body> {
   }
 
   void _initializeorderInfo() {
+    List listItem = _order['listItem'];
+    int index = 0;
     orderInfo.add(TextDto("Your order has been created at ", _order['createAt']));
     orderInfo.add(TextDto("Address", _order['address']));
+    
+    while(index < listItem.length){
+      if(index % 2 == 0){
+        String? productName;
+        demoProducts.forEach((element) {
+          if(element.id == listItem[index]){
+            productName = element.title;
+          }
+        });
+        int indexItem = (index + 2) ~/ 2 ;
+        String quantity = listItem[index].toString();
+        orderInfo.add(TextDto("Item $indexItem", productName! + " x " + quantity));
+      }
+      index += 2;
+    }
     orderInfo.add(TextDto("Total", _order['total']));
     // Add more items to orderInfo as needed
   }

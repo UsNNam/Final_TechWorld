@@ -35,7 +35,7 @@ class Body extends StatelessWidget {
                     height: 120,
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
-                        child: const Image(image: AssetImage('assets/images/profile_account.png'))),
+                        child: const Image(image: AssetImage('assets/images/User.png'))),
                   ),
                   Positioned(
                     bottom: 0,
