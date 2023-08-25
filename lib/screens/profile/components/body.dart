@@ -53,7 +53,7 @@ class Body extends StatelessWidget {
             press: () {
               _auth.logOut();
               print(_auth.user);
-              Navigator.pushNamed(context, SignInScreen.routeName);
+              Navigator.pushNamedAndRemoveUntil(context, SignInScreen.routeName, (route) => false);
             },
           ),
         ],
