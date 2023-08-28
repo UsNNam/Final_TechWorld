@@ -15,8 +15,10 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class ConfirmCard extends StatelessWidget {
+
+  final double? voucher;
   const ConfirmCard({
-    Key? key,
+    Key? key, this.voucher,
   }) : super(key: key);
 
   double? calculateTotalMoney(){
@@ -24,7 +26,7 @@ class ConfirmCard extends StatelessWidget {
     demoCarts.forEach((element) {
       result += element.product.price * element.numOfItem;
     });
-    return result;
+    return voucher == null ? result : result*(1-voucher!);
   }
 
   @override

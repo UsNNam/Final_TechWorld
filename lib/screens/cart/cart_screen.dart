@@ -8,10 +8,15 @@ class CartScreen extends StatelessWidget {
   static String routeName = "/cart";
   @override
   Widget build(BuildContext context) {
+    final String? voucherString = ModalRoute.of(context)!.settings.arguments as String?;
+    double voucher = 0;
+    if(voucherString == "SALE20"){
+      voucher = 0.2;
+    }
     return Scaffold(
       appBar: buildAppBar(context),
       body: Body(),
-      bottomNavigationBar: CheckoutCard(),
+      bottomNavigationBar: CheckoutCard(voucher: voucher,),
     );
   }
 

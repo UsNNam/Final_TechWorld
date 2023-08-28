@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:shop_app/screens/add_product/add_product_screen.dart';
+import 'package:shop_app/screens/add_voucher/add_voucher_screen.dart';
 import 'package:shop_app/screens/all_product/all_product.dart';
 import 'package:shop_app/screens/cart/cart_screen.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
@@ -8,6 +9,7 @@ import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:shop_app/screens/home/components/search_field.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/login_success/login_success_screen.dart';
+import 'package:shop_app/screens/manage_order_admin/manage_order_admin_screen.dart';
 import 'package:shop_app/screens/order_list/order_list_screen.dart';
 import 'package:shop_app/screens/order_tracker/order_tracker.dart';
 import 'package:shop_app/screens/otp/otp_screen.dart';
@@ -42,5 +44,7 @@ final Map<String, WidgetBuilder> routes = {
   SearchResults.routeName:(context) => SearchResults(),
   AddProduct.routeName:(context) => AddProduct(),
   OrderListScreen.routeName:(context) => OrderListScreen(),
+  AddVoucherScreen.routeName:(context) => AddVoucherScreen(),
+  ManageOrderAdminScreen.routeName:(context) => ManageOrderAdminScreen(),
   
 };

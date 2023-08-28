@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/screens/manage_order_admin/manage_order_admin_screen.dart';
 import 'package:shop_app/screens/order_list/order_list_screen.dart';
 import 'package:shop_app/screens/profile_account/profile_account.dart';
 import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
@@ -16,6 +17,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User?>(context);
+    bool isAdmin = user?.email == "namnam@gmail.com";
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Column(
@@ -34,7 +36,13 @@ class Body extends StatelessWidget {
             icon: "assets/icons/Order.svg",
             press: () async {
               orderList = await DatabaseServiceOrder().loadOrderForUser(user!.uid);
-              Navigator.pushNamed(context, OrderListScreen.routeName);
+
+              if(isAdmin){
+                Navigator.pushNamed(context, ManageOrderAdminScreen.routeName);
+              }
+              else{
+                Navigator.pushNamed(context, OrderListScreen.routeName);
+              }
             },
           ),
           ProfileMenu(

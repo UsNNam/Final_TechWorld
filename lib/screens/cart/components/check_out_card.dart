@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/models/Cart.dart';
 import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/screens/add_voucher/add_voucher_screen.dart';
 import 'package:shop_app/screens/checkout_screen/check_out.dart';
 import 'package:shop_app/screens/order_tracker/order_tracker.dart';
 
@@ -10,8 +11,9 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class CheckoutCard extends StatelessWidget {
+  final double voucher;
   const CheckoutCard({
-    Key? key,
+    Key? key, required this.voucher,
   }) : super(key: key);
 
   double? calculateTotalMoney(){
@@ -19,7 +21,7 @@ class CheckoutCard extends StatelessWidget {
     demoCarts.forEach((element) {
       result += element.product.price * element.numOfItem;
     });
-    return result;
+    return result*(1-voucher);
   }
 
   @override
@@ -62,7 +64,12 @@ class CheckoutCard extends StatelessWidget {
                   child: SvgPicture.asset("assets/icons/receipt.svg"),
                 ),
                 Spacer(),
-                Text("Add voucher code", style: TextStyle(color: Colors.black),),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, AddVoucherScreen.routeName, arguments: voucher);
+                    },
+                    child: Text("Add voucher code", style: TextStyle(color: Colors.black),)
+                  ),
                 const SizedBox(width: 10),
                 Icon(
                   Icons.arrow_forward_ios,
@@ -96,7 +103,7 @@ class CheckoutCard extends StatelessWidget {
                         print(element.product);
                         print(element.numOfItem);
                       });
-                      Navigator.pushNamed(context, CheckOut.routeName);
+                      Navigator.pushNamed(context, CheckOut.routeName, arguments: voucher);
                     },
                   ),
                 ),

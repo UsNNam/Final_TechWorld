@@ -3,7 +3,6 @@ import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
-import 'package:shop_app/screens/otp/otp_screen.dart';
 import 'package:shop_app/service/auth.dart';
 import 'package:shop_app/service/database.dart';
 import 'package:provider/provider.dart';
@@ -94,8 +93,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         labelStyle: TextStyle(color: kTextColor),
         hintStyle: TextStyle(color: kTextColor),
         
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
+
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon:
             CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
@@ -126,8 +124,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         hintText: "Enter your phone number",
         labelStyle: TextStyle(color: kTextColor),
         hintStyle: TextStyle(color: kTextColor),
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
+
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
       ),
@@ -143,8 +140,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         hintText: "Enter your last name",
         labelStyle: TextStyle(color: kTextColor),
         hintStyle: TextStyle(color: kTextColor),
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
+
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
       ),
@@ -173,8 +169,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         hintText: "Enter your first name",
         labelStyle: TextStyle(color: kTextColor),
         hintStyle: TextStyle(color: kTextColor),
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
+
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
       ),

@@ -70,7 +70,7 @@ class _BodyState extends State<Body> {
                 },
                 decoration: InputDecoration(
                   labelText: "Image of product:",
-                  hintText: "Input Image of product...",
+                  hintText: "Input Image address of product...",
                   labelStyle: TextStyle(color: kTextColor),
                   hintStyle: TextStyle(color: kTextColor),
       
@@ -146,7 +146,7 @@ class _BodyState extends State<Body> {
         style: TextStyle(color: kTextColor),
         onSaved: (link) => images.add(link!),
         decoration: InputDecoration(
-          hintText: 'Enter image link...',
+          hintText: 'Enter image Address...',
           hintStyle: TextStyle(color: kTextColor),
           border: OutlineInputBorder(),
         ),

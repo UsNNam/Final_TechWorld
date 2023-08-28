@@ -17,7 +17,7 @@ class AllProducts extends StatelessWidget {
         title: Text('All Products', style: TextStyle(color: Colors.black),),
         actions: [
           IconButton(onPressed: isAdmin ? () {
-            Navigator.pushNamed(context, AddProduct.routeName);
+            Navigator.pushReplacementNamed(context, AddProduct.routeName);
           } : null, 
           icon: Icon(FontAwesomeIcons.circlePlus))
         ],

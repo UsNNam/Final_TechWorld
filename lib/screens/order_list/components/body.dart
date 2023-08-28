@@ -16,7 +16,7 @@ class BlockWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: getProportionateScreenHeight(24),),
+        SizedBox(height: getProportionateScreenHeight(12),),
         Container(
           height: 50,
           width: getProportionateScreenWidth(340),
@@ -32,7 +32,7 @@ class BlockWidget extends StatelessWidget {
             }, 
             child: Text(data)),
         ),
-        
+        SizedBox(height: getProportionateScreenHeight(18),),
       ],
     );
   }

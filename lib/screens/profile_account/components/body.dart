@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/constants.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:shop_app/service/database.dart';
 
 const double tDefaultSize = 20;
@@ -120,7 +121,9 @@ class Body extends StatelessWidget {
                                 SizedBox(
                                   width: double.infinity,
                                   child: ElevatedButton(
-                                    onPressed: () => {},
+                                    onPressed: () {
+                                      Navigator.pushReplacementNamed(context, CompleteProfileScreen.routeName);
+                                    },
                                     style: ElevatedButton.styleFrom(
                                         backgroundColor: tPrimaryColor.withOpacity(0.8),
                                         side: BorderSide.none,

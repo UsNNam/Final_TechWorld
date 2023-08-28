@@ -7,9 +7,11 @@ import 'components/body.dart';
 
 class CheckOut extends StatelessWidget {
   static String routeName = "/checkout";
-
+  
   @override
   Widget build(BuildContext context) {
+    double voucher = 0;
+    voucher = ModalRoute.of(context)!.settings.arguments as double;
     final user = Provider.of<User?>(context);
     print(user);
     return Scaffold(
@@ -17,7 +19,7 @@ class CheckOut extends StatelessWidget {
         title: Text("Check out", style: TextStyle(color: Colors.black),),
       ),
       body: Body(user: user,),
-      bottomNavigationBar: ConfirmCard(),
+      bottomNavigationBar: ConfirmCard(voucher: voucher,),
     );
   }
 }
