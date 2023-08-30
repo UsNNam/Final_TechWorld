@@ -138,4 +138,21 @@ class DatabaseServiceOrder {
       return []; // Return an empty list if there's an error
     }
   }
+  Future<List<Map<String, dynamic>>> loadOrderForAdmin() async {
+    try {
+      QuerySnapshot querySnapshot = await orderCollection.get();
+      List<Map<String, dynamic>> result = [];
+      querySnapshot.docs.forEach((order) {
+        var data = order.data() as Map<String, dynamic>;
+        result.add({'address': data['address'], 'createAt': data['createAt'], 'status': data['status'], 'total': data['total'],
+        'listItem': data['listItem']});
+        
+        });
+      return result;
+    } 
+    catch (e) {
+      print('Error saving Order: $e');
+      return []; // Return an empty list if there's an error
+    }
+  }
 }

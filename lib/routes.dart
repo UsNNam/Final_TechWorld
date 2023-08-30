@@ -9,7 +9,9 @@ import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:shop_app/screens/home/components/search_field.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/login_success/login_success_screen.dart';
+import 'package:shop_app/screens/manage_order_admin/components/body.dart';
 import 'package:shop_app/screens/manage_order_admin/manage_order_admin_screen.dart';
+import 'package:shop_app/screens/order_info_for_admin/order_info_for_admin_screen.dart';
 import 'package:shop_app/screens/order_list/order_list_screen.dart';
 import 'package:shop_app/screens/order_tracker/order_tracker.dart';
 import 'package:shop_app/screens/otp/otp_screen.dart';
@@ -46,5 +48,6 @@ final Map<String, WidgetBuilder> routes = {
   OrderListScreen.routeName:(context) => OrderListScreen(),
   AddVoucherScreen.routeName:(context) => AddVoucherScreen(),
   ManageOrderAdminScreen.routeName:(context) => ManageOrderAdminScreen(),
+  OrderInfoForAdminScreen.routeName:(context) => OrderInfoForAdminScreen(),
   
 };

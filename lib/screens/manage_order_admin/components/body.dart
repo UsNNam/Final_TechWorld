@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/constants.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
+import 'package:shop_app/screens/order_info_for_admin/order_info_for_admin_screen.dart';
+
+List orderListAdmin = [];
 
 class Order {
   final String id;
@@ -10,29 +15,27 @@ class Order {
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Order Filter Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: OrderListScreen(),
-    );
+    return OrderListScreenAdmin();
   }
 }
 
-class OrderListScreen extends StatefulWidget {
+class OrderListScreenAdmin extends StatefulWidget {
   @override
-  _OrderListScreenState createState() => _OrderListScreenState();
+  _OrderListScreenAdminState createState() => _OrderListScreenAdminState();
 }
 
-class _OrderListScreenState extends State<OrderListScreen> {
+class _OrderListScreenAdminState extends State<OrderListScreenAdmin> {
   String selectedFilter = 'All';
   List<Order> orders = [
-    Order('1', 'Pending'),
-    Order('2', 'Processing'),
-    Order('3', 'Completed'),
     // ... Add more orders
   ];
+  void createOrderListAdmin(){
+    orders = [];
+    orderListAdmin.forEach((element) {
+      orders.add(Order((orders.length + 1).toString(), element['status']));
+    });
+    print("orderlist admin: $orders");
+  }
 
   List<Order> get filteredOrders {
     if (selectedFilter == 'All') {
@@ -44,28 +47,43 @@ class _OrderListScreenState extends State<OrderListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    createOrderListAdmin();
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Manage All Orders'),
-      ),
       body: Column(
         children: [
           ToggleButtons(
             children: [
-              Text('All'),
-              Text('Pending'),
-              Text('Processing'),
-              Text('Completed'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('All', style: TextStyle(color: _getTextColor('All')),),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Confirmed', style: TextStyle(color: _getTextColor('Confirmed')),),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Packaging', style: TextStyle(color: _getTextColor('Packaging')),),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Shipping', style: TextStyle(color: _getTextColor('Shipping')),),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Delivered', style: TextStyle(color: _getTextColor('Delivered')),),
+              ),
             ],
             isSelected: [
               selectedFilter == 'All',
-              selectedFilter == 'Pending',
-              selectedFilter == 'Processing',
-              selectedFilter == 'Completed',
+              selectedFilter == 'Confirmed',
+              selectedFilter == 'Packaging',
+              selectedFilter == 'Shipping',
+              selectedFilter == 'Delivered',
             ],
             onPressed: (index) {
               setState(() {
-                selectedFilter = ['All', 'Pending', 'Processing', 'Completed'][index];
+                selectedFilter = ['All', 'Confirmed', 'Packaging', 'Shipping', 'Delivered'][index];
               });
             },
           ),
@@ -73,14 +91,60 @@ class _OrderListScreenState extends State<OrderListScreen> {
             child: ListView.builder(
               itemCount: filteredOrders.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('Order ${filteredOrders[index].id}'),
-                  subtitle: Text('Status: ${filteredOrders[index].status}'),
-                );
+                return ButtonOrder(index: index, status: filteredOrders[index].status);
               },
             ),
           ),
         ],
+      ),
+    );
+  }
+  Color _getTextColor(String filter) {
+  // Define the colors based on the filter status
+  if (filter == selectedFilter) {
+    return Colors.blue; // Change this to the desired selected color
+  } else {
+    return kTextColor; // Use your default text color here
+  }
+}
+}
+
+
+
+class ButtonOrder extends StatelessWidget {
+  final int index;
+  final String status;
+
+  const ButtonOrder({
+    required this.index, required this.status,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    int tmpIndex = index + 1;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: GestureDetector(
+        onTap: (){
+          Navigator.pushNamed(context, OrderInfoForAdminScreen.routeName, arguments: orderListAdmin[index]);
+        },
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Column(
+            children: [
+              Text(
+                'Order $tmpIndex',
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 8.0),
+              Text('Status: $status'),
+            ],
+          ),
+        ),
       ),
     );
   }
