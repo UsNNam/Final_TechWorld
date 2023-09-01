@@ -5,3 +5,4 @@
 ![alt text](https://github.com/UsNNam/Final_TechWorld/blob/main/assets/images/Login_screen.jpg)
 ![alt text](https://github.com/UsNNam/Final_TechWorld/blob/main/assets/images/Order_tracking_screen.jpg)
 ![alt text](https://github.com/UsNNam/Final_TechWorld/blob/main/assets/images/Profile_screen.jpg)
+![alt text](https://github.com/UsNNam/Final_TechWorld/blob/main/assets/images/Manage_order_of_admin.jpg)
