@@ -5,7 +5,7 @@ import 'package:shop_app/screens/all_product/all_product.dart';
 import 'package:shop_app/size_config.dart';
 import 'package:shop_app/models/Product.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shop_app/service/database.dart  ';
+import 'package:shop_app/service/database.dart';
 
 
 class Body extends StatefulWidget {
@@ -126,7 +126,7 @@ class _BodyState extends State<Body> {
                   ], title: title!, price: price!, description: description!);
                   demoProducts1.add(tmp);
                   print("OK0");
-                  await DatabaseServiceProduct().uploadProductData(demoProducts1);
+                  await DatabaseServiceProduct().addNewProductData(tmp);
                   print("OK1");
                   demoProducts = await DatabaseServiceProduct().getProductsFromFirestore();
                   print("OK2");

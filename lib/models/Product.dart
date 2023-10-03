@@ -12,7 +12,12 @@ class Product {
   Product({
     required this.id,
     required this.images,
-    required this.colors,
+    this.colors = const [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
     this.rating = 0.0,
     this.isFavourite = false,
     this.isPopular = false,
